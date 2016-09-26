@@ -118,7 +118,7 @@ scalarMap = cmx.ScalarMappable(norm=cNorm,cmap=mymap)
 fig = pylab.figure(figsize=(50,50))
 c = 1
 ncols = len(spws)
-nrows = int(numpy.ceil(float(len(ants))/float(ncols)))
+#nrows = int(numpy.ceil(float(len(ants))/float(ncols)))
 nrows = len(ants)
 for ant in ants:
 	gi('Antenna '+str(ant))
