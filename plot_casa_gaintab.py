@@ -1,6 +1,6 @@
 # Plot a CASA gain table.
 # ian.heywood@csiro.au
-# 14.09.16
+# 27.09.16
 
 import numpy
 import pylab
@@ -21,6 +21,7 @@ def gi(message):
 def ri(message):
         print '\033[91m'+message+'\033[0m'
 
+	
 # Command line options
 
 parser = OptionParser(usage='%prog [options] gaintable')
@@ -98,7 +99,6 @@ else:
 
 if pngname == '':
 	pngname = caltab+'_'+doplot+'_corr'+str(corr)+'.png'
-
 
 # Open the caltable and gather some basic info
 
