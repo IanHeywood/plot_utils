@@ -1,6 +1,6 @@
 # Plot a CASA gain table.
 # ian.heywood@csiro.au
-# 27.09.16
+# 19.10.16
 
 import numpy
 import pylab
@@ -28,7 +28,7 @@ parser = OptionParser(usage='%prog [options] gaintable')
 parser.add_option('-p','--plot',dest='doplot',help='Set to amp, phase, real or imag (default = amp)',default='amp')
 parser.add_option('-c','--corr',dest='corr',help='Correlation product to plot (default = 0)',default=0)
 parser.add_option('--ms',dest='msname',help='Corresponding Measurement Set from which to read antenna info (not essential)',default='')
-parser.add_option('--showflags',dest='showflags',action='store_false',help='Show flagged points in magenta (default = True)',default=True)
+parser.add_option('--showflags',dest='showflags',action='store_false',help='Show flagged points in regular colour, not magenta (default = True)',default=True)
 parser.add_option('--y0',dest='y0',help='Minimum value of y-axis',default='')
 parser.add_option('--y1',dest='y1',help='Maximum value of y-axis',default='')
 parser.add_option('--pngname',dest='pngname',help='Name of output PNG',default='')
