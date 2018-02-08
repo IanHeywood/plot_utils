@@ -1,3 +1,7 @@
+# Plotting CASA cal tables
+
+Here are some command line scripts for plotting the tables that result from CASA's gaincal and bandpass tables.
+
 # plot_gaintab
 
 Plot time-dependent gain solutions produced by CASA's gaincal task. All (or a selection of) antennas are plotted on two panels, either amp and phase, or real and imag.
