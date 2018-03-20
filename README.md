@@ -5,7 +5,7 @@ A set of command line utilities for making various plots from Measurement Sets a
 
 # 1) plot_ants.py
 
-Plot antenna positions from a MS. Converts lat,lon positions to UTM eastings and northings in metres, relative to a specified array centre. Only really works for MeerKAT at the moment.
+Plot antenna positions from a MS. Converts lat,lon positions to UTM eastings and northings in metres, relative to a specified array centre. Only really works for MeerKAT at the moment. Requires https://pypi.python.org/pypi/utm
 
 ```
 Usage: plot_ants.py msname
