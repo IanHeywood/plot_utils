@@ -1,6 +1,6 @@
-# Plotting CASA cal tables
+# plot_utils
 
-Here are some command line scripts for plotting the tables that result from CASA's gaincal and bandpass tables.
+A set of command line utilities for making various plots from Measurement Sets and calibration tables.
 
 # plot_gaintab
 
