@@ -2,7 +2,7 @@
 
 A set of command line utilities for making various plots from Measurement Sets and calibration tables.
 
-# plot_gaintab
+# plot_gaintab.py
 
 Plot time-dependent gain solutions produced by CASA's gaincal task. All (or a selection of) antennas are plotted on two panels, either amp and phase, or real and imag.
 
@@ -40,7 +40,12 @@ Options:
 
 ![](https://i.imgur.com/eDzd6kK.jpg)
 
-# plot_vla_gaintab
+
+# plot_bandpass.py
+
+Plot CASA bandpass tables (still needs polishing)
+
+# plot_vla_gaintab.py
 
 This is geared towards VLA calibration but should work for any gain table, although those with only a single SPW might not make economical use of the plot space. Uses pyrap.
 
