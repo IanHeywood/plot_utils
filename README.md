@@ -2,7 +2,22 @@
 
 A set of command line utilities for making various plots from Measurement Sets and calibration tables.
 
-# plot_gaintab.py
+
+# 1) plot_ants.py
+
+Plot antenna positions from a MS. Converts lat,lon positions to UTM eastings and northings in metres, relative to a specified array centre. Only really works for MeerKAT at the moment.
+
+```
+Usage: plot_ants.py msname
+```
+
+
+# 2) plot_bandpass.py
+
+Plot CASA bandpass tables (still needs polishing)
+
+
+# 3) plot_gaintab.py
 
 Plot time-dependent gain solutions produced by CASA's gaincal task. All (or a selection of) antennas are plotted on two panels, either amp and phase, or real and imag.
 
@@ -41,11 +56,7 @@ Options:
 ![](https://i.imgur.com/eDzd6kK.jpg)
 
 
-# plot_bandpass.py
-
-Plot CASA bandpass tables (still needs polishing)
-
-# plot_vla_gaintab.py
+# 4) plot_vla_gaintab.py
 
 This is geared towards VLA calibration but should work for any gain table, although those with only a single SPW might not make economical use of the plot space. Uses pyrap.
 
