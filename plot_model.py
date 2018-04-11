@@ -73,7 +73,6 @@ for resid in fitslist:
     img = resid.replace('residual','image')
     modconv = resid.replace('residual','modconv')
     copyfile(img,modconv)
-    os.system('cp '+img+' '+modconv)
     img_data = getImage(img)
     resid_data = getImage(resid)
     modconv_data = img_data - resid_data
