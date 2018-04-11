@@ -49,6 +49,15 @@ parser.add_option('-m','--map',dest='mycmap',help='Colour map for image (default
 parser.add_option('-c','--col',dest='mycol',help='Colour for contours (default = magenta)',default='magenta')
 parser.add_option('--pmin',dest='pixmin',help='Minimum for colourscale in map units (default = -1e-4)',default=-1e-4)
 parser.add_option('--pmax',dest='pixmax',help='Maximum for colourscale in map units (default = 5e-4)',default=5e-4)
+(options,args) = parser.parse_args()
+
+
+level = float(options.level)
+mycmap = options.mycmap
+mycol = options.mycol
+pixmin = float(options.pixmin)
+pixmax = float(options.pixmax)
+
 
 if len(args) != 1:
     print 'Please specify an image set to plot'
