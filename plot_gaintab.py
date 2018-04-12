@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from pyrap.tables import table
 from optparse import OptionParser
 import matplotlib.colors as colors
