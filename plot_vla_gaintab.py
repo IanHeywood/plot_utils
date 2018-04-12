@@ -1,6 +1,4 @@
-# Plot a CASA gain table.
-# ian.heywood@csiro.au
-# 19.10.16
+#!/usr/bin/env python
 
 import numpy
 import pylab
