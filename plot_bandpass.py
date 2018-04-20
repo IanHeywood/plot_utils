@@ -154,7 +154,7 @@ for ant in plotants:
 	subtab.close()
 
 	dx = 1.0/float(len(ants)-1)
-	ax1.text(float(ant)*dx,1.05,str(ant),size='large',horizontalalignment='center',color=y1col,transform=ax1.transAxes,weight='heavy')
+	ax1.text(float(ant)*dx,1.05,str(ant),size='large',horizontalalignment='center',color=y1col,transform=ax1.transAxes,weight='heavy',rotation=90)
 
 	if numpy.min(chans) < xmin:
 		xmin = numpy.min(chans)
