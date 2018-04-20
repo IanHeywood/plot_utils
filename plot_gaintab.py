@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-
+import matplotlib
+matplotlib.use('Agg')
 from pyrap.tables import table
 from optparse import OptionParser
 import matplotlib.colors as colors
@@ -41,6 +41,7 @@ parser.add_option('--yl0',dest='yl0',help='Minimum y-value to plot for lower pan
 parser.add_option('--yl1',dest='yl1',help='Maximum y-value to plot for lower panel (default = full range)',default=-1)
 parser.add_option('--cmap',dest='mycmap',help='Matplotlib colour map to use for antennas (default = coolwarm)',default='coolwarm')
 parser.add_option('--size',dest='mysize',help='Font size for figure labels (default = 20)',default=20)
+parser.add_option('--ms',dest='myms',help='Measurement Set to consult for proper antenna names',default='')
 parser.add_option('-p','--plotname',dest='pngname',help='Output PNG name (default = something sensible)',default='')
 (options,args) = parser.parse_args()
 
@@ -57,6 +58,7 @@ yl0 = float(options.yl0)
 yl1 = float(options.yl1)
 mycmap = options.mycmap
 mysize = int(options.mysize)
+myms = options.myms
 pngname = options.pngname
 
 
@@ -97,10 +99,20 @@ if plotants[0] != -1:
 			plotants.remove(ant)
 			print 'Requested antenna ID '+str(ant)+' not found'
 	if len(plotants) == 0:
-		print 'No valid antennas indices requested'
+		print 'No valid antennas have been requested'
 		sys.exit(-1)
+	else:
+		plotants = numpy.array(plotants,dtype=int)
 else:
 	plotants = ants
+
+
+if myms != '':
+	anttab = table(myms.rstrip('/')+'/ANTENNA')
+	antnames = anttab.getcol('NAME')
+	anttab.done()
+else:
+	antnames = ''
 
 
 fig = pylab.figure(figsize=(24,18))
@@ -154,7 +166,11 @@ for ant in plotants:
 	subtab.close()
 
 	dx = 1.0/float(len(ants)-1)
-	ax1.text(float(ant)*dx,1.05,str(ant),size='large',horizontalalignment='center',color=y1col,transform=ax1.transAxes,weight='heavy',rotation=90)
+	if antnames == '':
+		antlabel = str(ant)
+	else:
+		antlabel = antnames[ant]
+	ax1.text(float(ant)*dx,1.05,antlabel,size='large',horizontalalignment='center',color=y1col,transform=ax1.transAxes,weight='heavy',rotation=90)
 
 	if numpy.min(times) < xmin:
 		xmin = numpy.min(times)
