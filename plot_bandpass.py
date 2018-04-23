@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import matplotlib
+matplotlib.use('Agg')
 from pyrap.tables import table
 from optparse import OptionParser
 import matplotlib.colors as colors
