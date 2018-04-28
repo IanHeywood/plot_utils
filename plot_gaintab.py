@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import matplotlib
 matplotlib.use('Agg')
 from pyrap.tables import table
