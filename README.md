@@ -10,15 +10,19 @@ Plot antenna positions from a MS. Converts lat,lon positions to UTM eastings and
 
 Plot CASA bandpass tables (still needs polishing)
 
-# 3) plot_gaintab.py
+# 3) plot_cubical.py
+
+Plot the contents of a CubiCal gain table. Plots one panel per antenna. Error table is overlaid on gain plot as a shaded region, and multiple directions should be automatically colour-coded.
+
+# 4) plot_gaintab.py
 
 Plot time-dependent gain solutions produced by CASA's gaincal task. All (or a selection of) antennas are plotted on two panels, either amp and phase, or real and imag.
 
-# 4) plot_model.py
+# 5) plot_model.py
 
 Plots the model from a wsclean run, overlaid on the MFS image. For visually checking the model for completeness and artefacts during self-calibration.
 
-# 5) plot_vla_gaintab.py
+# 6) plot_vla_gaintab.py
 
 This is geared towards VLA calibration but should work for any gain table, although those with only a single SPW might not make economical use of the plot space. The resulting plots have antennas in rows and SPWs in columns. The goal is to provide a global overview of the solutions to indentify misbehaving antennas or SPWs, and gauge solution coherence. This comes at the expense of any axis labels whatsoever. 
 
