@@ -1,6 +1,6 @@
 # plot_utils
 
-A set of command line utilities for making various plots from Measurement Sets and calibration tables.
+A set of command line utilities for making various plots from Measurement Sets, images and calibration tables of various flavours.
 
 # 1) plot_ants.py
 
