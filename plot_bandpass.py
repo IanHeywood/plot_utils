@@ -114,8 +114,8 @@ else:
 	antnames = ''
 	
 fig = pylab.figure(figsize=(24,18))
-ax1 = fig.add_subplot(211,axisbg='#EEEEEE')
-ax2 = fig.add_subplot(212,axisbg='#EEEEEE')
+ax1 = fig.add_subplot(211,facecolor='#EEEEEE')
+ax2 = fig.add_subplot(212,facecolor='#EEEEEE')
 
 
 setup_plot(ax1)
