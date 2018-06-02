@@ -147,7 +147,7 @@ def plot_ants(msname):
             labs_abs.append(ant[2])
 
     fig = pylab.figure(figsize=(18,18))
-    ax = fig.add_subplot(1,1,1,axisbg='#EEEEEE')
+    ax = fig.add_subplot(1,1,1,facecolor='#EEEEEE')
     setup_plot(ax)
     ax.plot(ee,nn,'o',markersize=12,color='red',zorder=200)
     ax.plot(ee_abs,nn_abs,'o',markersize=12,color='grey',alpha=0.4,zorder=100)
