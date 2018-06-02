@@ -207,9 +207,13 @@ scalarMap = cmx.ScalarMappable(norm=cNorm,cmap=mymap)
 
 # Generate PNG name if one isn't provided
 if pngname == '':
+	if plotfreq == -1:
+		fstr = 'f-avg'
+	else:
+		fstr = 'f'+str(plotfreq)
 # 	pngname = 'plot_'+gaintab.replace('/','-')+'_corr'+str(corr1)+'-'+str(corr2)+'_'+doplot+'_field'+str(field)+'.png'
 # figtitle = gaintab+' corr1='+str(corr1)+' corr2='+str(corr2)+' field='+str(field)
-	pngname = 'plot_'+gaintab.replace('/','-')+'_corr'+str(corr1)+'-'+str(corr2)+'_'+doplot+'.png'
+	pngname = 'plot_'+gaintab.replace('/','-')+'_'+fstr+'_corr'+str(corr1)+'-'+str(corr2)+'_'+doplot+'.png'
 
 
 # Fig layout
