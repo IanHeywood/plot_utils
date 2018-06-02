@@ -121,7 +121,7 @@ nrows = len(ants)
 for ant in ants:
 	gi('Antenna '+str(ant))
 	for spw in spws:
-		ax = fig.add_subplot(nrows,ncols,c,axisbg='#EEEEEE')
+		ax = fig.add_subplot(nrows,ncols,c,facecolor='#EEEEEE')
 		subtab = t.query(query='ANTENNA1=='+str(ant)+' && SPECTRAL_WINDOW_ID=='+str(spw))
 		subtimes = subtab.getcol('TIME').tolist()
 		subgains = subtab.getcol('CPARAM').tolist()
