@@ -49,6 +49,7 @@ parser.add_option('-m','--map',dest='mycmap',help='Colour map for image (default
 parser.add_option('-c','--col',dest='mycol',help='Colour for contours (default = magenta)',default='magenta')
 parser.add_option('--pmin',dest='pixmin',help='Minimum for colourscale in map units (default = -1e-4)',default=-1e-4)
 parser.add_option('--pmax',dest='pixmax',help='Maximum for colourscale in map units (default = 5e-4)',default=5e-4)
+parser.add_option('--pngname',dest='pngname',help='Name of output PNG file (default = something sensible)',default='')
 (options,args) = parser.parse_args()
 
 
@@ -77,7 +78,8 @@ for resid in fitslist:
     resid_data = getImage(resid)
     modconv_data = img_data - resid_data
     flushFits(modconv_data,modconv)
-    pngname = 'plot_'+img+'.png'
+    if pngname == '':
+            pngname = 'plot_'+img+'.png'
     fig = pylab.figure(figsize=(64,64))
     f1 = aplpy.FITSFigure(img,slices=[0,0],figure=fig,subplot=[0.02,0.02,0.96,0.96])
     f1.show_colorscale(interpolation='none',cmap=mycmap,stretch='linear',vmin=pixmin,vmax=pixmax)
