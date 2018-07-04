@@ -58,6 +58,7 @@ mycmap = options.mycmap
 mycol = options.mycol
 pixmin = float(options.pixmin)
 pixmax = float(options.pixmax)
+pngname = options.pngname
 
 
 if len(args) != 1:
