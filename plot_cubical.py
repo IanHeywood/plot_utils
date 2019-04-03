@@ -13,6 +13,11 @@ import matplotlib.colors as colors
 import matplotlib.cm as cmx
 
 
+print "!!!!!!!!!"
+print "I'm not sure this is doing the right thing with regards to frequency chunks, so I'd suggest you export your CubiCal tables as CASA format and plot with other tools."
+print "!!!!!!!!!"
+
+
 # ---------------------------------------------------------------------------------------
 # Function definitions
 # ---------------------------------------------------------------------------------------
