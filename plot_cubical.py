@@ -15,6 +15,7 @@ import matplotlib.cm as cmx
 
 print "!!!!!!!!!"
 print "I'm not sure this is doing the right thing with regards to frequency chunks, so I'd suggest you export your CubiCal tables as CASA format and plot with other tools."
+print "Having said that: https://github.com/ratt-ru/CubiCal/issues/272"
 print "!!!!!!!!!"
 
 
@@ -357,7 +358,7 @@ for ant in ant_list:
 	# Y-axis labels for plots on the left hand side
 	leftplots = []
 	for i in range(0,ncols):
-		leftplots.append((i*(nrows))+(i+1))
+		leftplots.append((i*(ncols))+1)
 	if pltcount in leftplots:
 		if doplot == 'a':
 			ax1.set_ylabel('Amplitude')
