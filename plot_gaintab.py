@@ -72,7 +72,7 @@ else:
 
 
 if pngname == '':
-	pngname = 'plot_'+mytab+'_corr'+str(corr)+'_'+doplot+'_field'+str(field)+'.png'
+	pngname = 'plot_'+mytab.split('/')[-1]+'_corr'+str(corr)+'_'+doplot+'_field'+str(field)+'.png'
 
 
 if doplot not in ['ap','ri']:
