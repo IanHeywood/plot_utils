@@ -71,7 +71,7 @@ def main():
     #parser.add_option('--jones',dest='jones',help='Jones matrix to plot (default = G:gain)',default='G:gain')
     parser.add_option('--ant',dest='plotants',help='Plot only this antenna, or comma-separated list of antennas',default=-1)
     parser.add_option('--dir',dest='plotdir',help='Direction (cluster) index to plot (default = all)',default=-1)
-    parser.add_option('--freq',dest='plotfreq',help='Frequency index to plot (leave unset to average all)',default=0)
+    parser.add_option('--freq',dest='plotfreq',help='Frequency index to plot (leave unset to average all)',default=-1)
     parser.add_option('--corr1',dest='corr1',help='First correlation index to plot (default = 0)',default=0)
     parser.add_option('--corr2',dest='corr2',help='Second correlation index to plot (default = 0)',default=0)
     parser.add_option('--tmin',dest='tmin',help='Minimum time to plot for all panels (default = full range)',default=-1)
@@ -116,14 +116,14 @@ def main():
 
 
     if len(args) != 1:
-        print 'Please specify a killMS table to plot.'
+        print('Please specify a killMS table to plot.')
         sys.exit()
     else:
         gaintab = args[0]
 
 
     if doplot not in ['a','p','r','i']:
-        print 'Plot selection must be one of [a,p,r,i]'
+        print('Plot selection must be one of [a,p,r,i]')
         sys.exit()
 
 
@@ -158,35 +158,35 @@ def main():
 
 
     if listtab:
-        print ''
-        print gaintab
-        print ''
+        print('')
+        print(gaintab)
+        print('')
 
-        print '    Number of antennas   '+str(nant)
-        print ''
+        print('    Number of antennas   '+str(nant))
+        print('')
 
         start_time = t0[0]/86400
         end_time = t1[-1]/86400
         start_time_iso = Time(start_time,format='mjd').iso
         end_time_iso = Time(end_time,format='mjd').iso
-        print '    Number of intervals  '+str(nt)
-        print '    Median interval      '+str(numpy.median(dt))+' s'
-        print '    Start time           '+str(t0[0])+' ('+start_time_iso+')'
-        print '    End time             '+str(t1[-1])+' ('+end_time_iso+')'
-        print ''
+        print('    Number of intervals  '+str(nt))
+        print('    Median interval      '+str(numpy.median(dt))+' s')
+        print('    Start time           '+str(t0[0])+' ('+start_time_iso+')')
+        print('    End time             '+str(t1[-1])+' ('+end_time_iso+')')
+        print('')
         
-        print '    Frequency chunks    ',
+        print('    Frequency chunks    ',)
         for ff in freqs:
             f0 = str(round(ff[0]/1e6,2))
             f1 = str(round(ff[1]/1e6,2))
-            print f0+' - '+f1+' MHz'
-            print '                        ',
-        print ''
+            print(f0+' - '+f1+' MHz')
+            print('                        ',)
+        print('')
 
-        print '    Correlations        ',str(corr_i)+'x'+str(corr_j)
-        print ''
+        print('    Correlations        ',str(corr_i)+'x'+str(corr_j))
+        print('')
 
-        print '    Directions          ',
+        print('    Directions          ',)
         for i in range(0,len(clusters)):
             cl = clusters[i]
             cldir = ICRS(cl[1]*u.rad, cl[2]*u.rad)
@@ -195,9 +195,9 @@ def main():
             ra_hms = cldir.ra.to_string(u.hour)
             dec_dms = cldir.dec.to_string(u.deg)
             flux = str(round(cl[5],3))+' Jy'
-            print '%s   %6.6f  %6.6f  %16s  %16s  %10s' % (str(i),ra,dec,ra_hms,dec_dms,flux)
-            print '                        ',
-        print ''
+            print('%s   %6.6f  %6.6f  %16s  %16s  %10s' % (str(i),ra,dec,ra_hms,dec_dms,flux))
+            print('                        ',)
+        print('')
 
         sys.exit()
 
@@ -222,7 +222,7 @@ def main():
             if p < nants:
                 ant_list.append(p)
             else:
-                print 'Ignoring out-of-range antenna '+str(p)
+                print('Ignoring out-of-range antenna '+str(p))
 
 
     # Direction selection
@@ -239,7 +239,7 @@ def main():
             if d in numpy.arange(0,ndir):
                 plot_dirs.append(d)
             else:
-                print 'Ignoring out-of-range direction '+str(d)
+                print('Ignoring out-of-range direction '+str(d))
 
     cNorm = colors.Normalize(vmin=0,vmax=ndir-1)
     mymap = cm = pylab.get_cmap(mycmap)
@@ -260,7 +260,7 @@ def main():
         t_idx1 = len(t)
 
     if t_idx1 < t_idx0:
-        print 'Please check your time ranges'
+        print('Please check your time ranges')
         sys.exit()
 
 
@@ -322,8 +322,12 @@ def main():
 
             # Get the selected gains and time
 
-
-            g0 = (gains[t_idx0:t_idx1,plotfreq,ant,mydir,corr1,corr2])
+            if plotfreq == -1:
+                gains_freqavg = numpy.mean(gains,axis=1)
+                g0 = (gains_freqavg[t_idx0:t_idx1,ant,mydir,corr1,corr2])
+            else:
+                g0 = (gains[t_idx0:t_idx1,plotfreq,ant,mydir,corr1,corr2])
+            
             time = t[t_idx0:t_idx1] 
 
 
