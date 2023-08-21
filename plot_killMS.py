@@ -203,7 +203,7 @@ def main():
 
 
     # ---------------------------------------------------------------------------------------
-    #  Solution selection (frequency not yet implemented)
+    #  Solution selection 
     # ---------------------------------------------------------------------------------------
 
 
@@ -271,9 +271,13 @@ def main():
 
     # Generate PNG name if one isn't provided
 
+    if plotfreq == -1:
+        freqtag = 'avgfreq'
+    else:
+        freqtag = 'freq'+str(plotfreq)
 
     if pngname == '':
-        pngname = 'plot_'+gaintab.replace('/','-')+'_corr'+str(corr1)+'-'+str(corr2)+'_'+doplot+'_'+ant_label+'_'+dir_label+'.png'
+        pngname = 'plot_'+gaintab.replace('/','-')+'_corr'+str(corr1)+'-'+str(corr2)+'_'+freqtag+'_'+doplot+'_'+ant_label+'_'+dir_label+'.png'
 
 
     figx = int(ncols*15)
